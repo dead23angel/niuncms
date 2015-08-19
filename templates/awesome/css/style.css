@@ -1,0 +1,187 @@
+﻿	/* Новостной шаблон awesome by Rock Star
+		Дизайн и верстка — Rock Star / http://www.weblancer.net/users/RockStar/
+		
+	- - - - - - - - - - - - - - - - - - - - - - - -
+	
+		1. style.css, основной файл стилей					*/
+		
+		@import url("main.css");		/* Структура сайта */
+		@import url("engine.css");		/* Стили DataLife Engine */
+		
+		/* Основные стили
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		html,body{height: 100%; margin: 0px; padding: 0px; background: #000000; background-image: url(../images/bg.jpg); background-position: top; background-repeat: repeat-x; font: 11px Verdana; color: #ffffff;}
+		
+		table{border:0px;border-collapse:collapse;}
+		table td{padding:0px;}
+		.news img {border: none;}
+		
+a#move_up { 
+ position: fixed; 
+ top: 10px; 
+ display: none;
+ width: 66px; 
+ height: 20px;  
+ text-decoration: none; 
+ background:url(../images/up.png);
+ padding-top:0px; 
+} 
+a#move_up:hover { 
+}
+.nav a:first-child {margin-left:15px;}
+.nav a, .nav a:visited {
+display:block;
+float:left;
+height:36px;
+line-height:36px;
+color:#999999;
+text-transform:uppercase;
+font-size:12px;
+padding:0px 15px;
+font-weight:bold;
+}
+
+		img.aligncenter, img[align="center"] {margin: 0 auto; display: block;}
+		.alignleft {float: left;}
+		img.alignleft, img[align="left"] {float: left; margin: 2px 4px 0 0;}
+		.alignright {float: right;}
+		img.alignright, img[align="right"] {float: right; margin: 2px 3px 0 0;}  
+		
+		.style_input {font-size: 11px;color: #4c4c4c;font-family: Verdana;padding-left:3px;border: 1px solid #696969;background-image: url(../images/style_input.png);height:18px;}
+		.all_input {font-size: 11px;color: #4c4c4c;font-family: Verdana;padding-left:3px;border: 1px solid #696969;background-image: url(../images/style_input.png);height:18px;}
+		
+		.vote_do, .vote_do_hover {width:90px; height:20px; background:url(../images/sidebar_vote_btn.png) no-repeat 0 0; border:0pt none;}
+		.vote_do_hover {background-position:0 -20px}
+		
+		.addcom-button, .addcom-button:hover {width:185px; height:18px; background:url(../images/comment.png) no-repeat 0 0; border:0pt none;}
+		.addcom-button:hover {background-position:0 -18px}
+		
+		.send-button, .send-button:hover {width:85px; height:18px; background:url(../images/send.png) no-repeat 0 0; border:0pt none;}
+		.send-button:hover {background-position:0 -18px}
+		
+		/* Верхние ссылки
+		- - - - - - - - - - - - - - - - - - - - - - - - */				
+		.white-top {font:10px Verdana; color:#ffffff;}
+		.white-top a {font:10px Verdana; color:#ffffff; text-decoration: underline;}
+		.white-top a:hover {font:10px Verdana; color:#ffffff; text-decoration: none;}
+		.white-top11 {font:11px Verdana; color:#ffffff;}
+		.white-top11 a {font:11px Verdana; color:#75a626; text-decoration: none;}
+		.white-top11 a:hover {font:11px Verdana; color:#75a626; text-decoration: underline;}
+		.white-top11 span {font: 11px Verdana; color: #75a626; font-weight: bold;}
+		
+		.top-link {width: 91px; height: 38px;}
+		.top-link:hover {background-image: url(../images/top-link-bg.png); width: 91px; height: 38px;}
+		.top-link-first {background-image: url(../images/top-link-bg.png); width: 91px; height: 38px;}
+		#top-pad {padding-top: 10px; text-align: center;}
+		.white-link {font:10px Verdana; color:#ffffff;}
+		.white-link a {font:10px Verdana; color:#ffffff; text-decoration: none;}
+		.white-link a:hover {font:10px Verdana; color:#ffffff; text-decoration: underline;}
+		
+		/* Панель пользователя
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.login {font:11px Verdana; color:#ffffff;}
+		.login a {font:11px Verdana; color:#ffffff; text-decoration: none;}
+		.login a:hover {font:11px Verdana; color:#ffffff; text-decoration: underline;}
+		.login a span {font:11px Verdana; color:#ffffff; text-decoration: none; border-bottom: 1px #ffffff dashed;}
+		.login a:hover span {font:11px Verdana; color:#ffffff; text-decoration: none; border-bottom: none;}
+		
+		.login-button, .login-button:hover {width:55px; height:18px; background:url(../images/login.png) no-repeat 0 0; border:0pt none;}
+		.login-button:hover {background-position:0 -18px}
+		
+		/* Поиск по сайту
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.search-button, .search-button:hover {width:55px; height:18px; background:url(../images/search.png) no-repeat 0 0; border:0pt none;}
+		.search-button:hover {background-position:0 -18px}
+		
+		.search_input {font-size: 11px;color: #4c4c4c;font-family: Verdana;padding-left:3px;border: 1px solid #737373;background-image: url(../images/search_input.png);height:16px;}
+		
+		/* Последнии новости с сайта
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.lastnews {font:11px Verdana; color:#ffffff;}
+		.lastnews a {font:11px Verdana; color:#ffffff; text-decoration: underline;}
+		.lastnews a:hover {font:11px Verdana; color:#75a626; text-decoration: underline;}
+		
+		/* Спидбар
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.speedbar {font:11px Verdana; color:#ffffff;}
+		.speedbar a {font:11px Verdana; color:#75a626; text-decoration: none;}
+		.speedbar a:hover {font:11px Verdana; color:#75a626; text-decoration: underline;}
+		
+		/* Меню
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.menu-newstitle {font:12px Verdana; color:#ffffff;}
+		.menu-newstitle a {font:12px Verdana; color:#75a626; text-decoration: none;}
+		.menu-newstitle a:hover {font:12px Verdana; color:#75a626; text-decoration: underline;}
+		
+		.menu-news {font:10px Verdana; color:#ffffff;}
+		.menu-news a {font:10px Verdana; color:#75a626; text-decoration: underline;}
+		.menu-news a:hover {font:10px Verdana; color:#ffffff; text-decoration: underline;}
+		.menu-news img {width: 70px; height: 68px;}
+		
+		#border-bottom1 {border-bottom: 1px #2c2c2c dashed; font-size: 1px;}
+		
+		.menu {font:11px Verdana; color:#ffffff;}
+		.menu a {font:11px Verdana; color:#b0b0b0; text-decoration: underline;}
+		.menu a:hover {font:11px Verdana; color:#ffffff; text-decoration: none;}
+		
+		#border-menu {border-bottom: 1px #484848 dotted; font-size: 1px; padding-top: 5px; margin-bottom: 3px;}
+		
+		/* Новости
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.category {font:11px Verdana; color:#ffffff;}
+		.category a {font:11px Verdana; color:#75a626; text-decoration: underline;}
+		.category a:hover {font:11px Verdana; color:#5d7f39; text-decoration: none;}
+		
+		.news-title {font:11px Verdana; color:#ffffff;}
+		.news-title a {font:11px Verdana; color:#ffffff; text-decoration: underline;}
+		.news-title a:hover {font:11px Verdana; color:#bbbbbb; text-decoration: none;}
+		
+		.news-cat {font:10px Verdana; color:#5e5e5e;}
+		.news-cat a {font:10px Verdana; color:#5d7f39; text-decoration: none;}
+		.news-cat a:hover {font:10px Verdana; color:#5d7f39; text-decoration: underline;}
+		
+		.news {font:11px Verdana; color:#ffffff;}
+		.news a {font:11px Verdana; color:#75a626; text-decoration: underline;}
+		.news a:hover {font:11px Verdana; color:#50711a; text-decoration: none;}
+		.news span {font:11px Verdana; color:#75a626;}
+		
+		.all-news {font:14px Verdana; color:#ffffff;}
+		.all-news a {font:14px Verdana; color:#ffffff; text-decoration: underline;}
+		.all-news a:hover {font:14px Verdana; color:#bbbbbb; text-decoration: none;}
+		
+		/* Инфо
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		#g-quote {background-color: #1f1f1f; border-left: 4px #2d3f0e solid; padding: 5px;}
+		#g-quote-a {background-color: #1f1f1f; border-left: 4px #2d3f0e solid; padding: 5px; border-bottom: 1px #2d3f0e dashed; border-right: 1px #2d3f0e dashed; width: 72px;}
+		
+		/* Страницы сайта
+		- - - - - - - - - - - - - - - - - - - - - - - - */	
+		.pages {font:12pt Verdana; color:#ffffff;}
+		.pages a {font:12pt Verdana; color:#ffffff; padding: 2px; text-decoration: none;}
+		.pages a:hover {font:12pt Verdana; color:#F1F1F1; background: #212121; text-decoration: none;}
+		.pages span {font:12pt Verdana; color:#c7c7c7;}
+	
+		.pm_status {
+		float:left;
+		border: 1px solid #d8d8d8;
+		padding: 0px;
+		width: 280px;
+		height: 100px;
+		margin-left: 20px;
+		margin-right: 5px;
+		}
+
+		.pm_status_head {
+		border-bottom: 1px solid #d8d8d8;
+		font-size: 0.9em; 
+		background: #fff url("../images/bbcodes.png") repeat-x 0 100%;
+		height: 22px;
+		padding: 0;
+		font-weight: bold;
+		text-align: center;
+		color: #4e4e4e;
+		}
+
+		.pm_status_content {
+		padding: 5px;
+		}

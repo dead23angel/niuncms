@@ -1,0 +1,170 @@
+﻿<table valign="top">
+<td valign="top">
+<div class="adminmenu">
+<stat>Помощь</stat>
+<p>
+<table>
+<td>
+<img src="../admin/img/loope.jpg">
+</td>
+<td>
+ <a>- Открыть запись в новой вкладке</a>
+ </td>
+<tr>
+ <td>
+<img src="../admin/img/config.jpg">
+</td>
+<td>
+ <a>- Настройка записи</a>
+ </td>
+<tr>
+ <td>
+<img src="../admin/img/edd.jpg">
+</td>
+<td>
+ <a>- Редактирование записи</a>
+ </td> 
+<tr>
+ <td>
+<img src="../admin/img/del.jpg">
+</td>
+<td>
+ <a>- Удаление записи</a>
+ </td>  
+ </table>
+</div>
+<p>
+<div class="adminmenu">
+<stat>Разделы AdminCP</stat>
+<p>
+<table align = "center" width="100%">
+<td align = "center" class="pynkt" title="Добавление записи в личный блог.">
+<a href="?page=add_content"><img src="admin/img/add.png" border="0px"></a>
+<br>
+<a href="?page=add_content">Опубликовать</a>
+</td>
+
+<td align = "center" class="pynkt" title="Все записи блога, где вы сможете изменять, удалять, модерировать записи а так-же комментарии.">
+<a href="?page=all_content"><img src="admin/img/all.png" border="0px"></a>
+<br>
+<a href="?page=all_content">Все записи</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Настройка меню вашего сайта.">
+<a href="?page=all_menu"><img src="admin/img/menu.png" border="0px"></a>
+<br>
+<a href="?page=all_menu">Меню сайта</a>
+</td>
+
+<td align = "center" class="pynkt" title="Менеджер файлов для хранение файлов.">
+<a href="?page=mfiles"><img src="admin/img/files.png" border="0px"></a>
+<br>
+<a href="?page=mfiles">Файлы</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Сохрани в галерею картинки и публикуй их прямо в блог.">
+<a href="?page=galery"><img src="admin/img/gallery.png" border="0px"></a>
+<br>
+<a href="?page=galery">Галерея</a>
+</td>
+
+<td align = "center" class="pynkt" title="Управление группами E-Mail в комментариях.">
+<a href="?page=user"><img src="admin/img/user_comm.png" border="0px"></a>
+<br>
+<a href="?page=user">Пользователи</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Опросы для ваших посетителей блога.">
+<a href="?page=quest"><img src="admin/img/poll.png" border="0px"></a>
+<br>
+<a href="?page=quest">Опросы</a>
+</td>
+
+<td align = "center" class="pynkt" title="Установка/Настройка модулей.">
+<a href="?page=modules"><img src="admin/img/modules.png" border="0px"></a>
+<br>
+<a href="?page=modules">Модули</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Обращение к вам из формы обратной связи.">
+<a href="?page=contact"><img src="admin/img/mail.png" border="0px"></a>
+<br>
+<a href="?page=contact">Почта</a>
+</td>
+
+<td align = "center" class="pynkt" title="Настройка сайта.">
+<a href="?page=configblog"><img src="admin/img/setting.png" border="0px"></a>
+<br>
+<a href="?page=configblog">Настройка</a>
+</td>
+
+</table>
+</div>
+<p>
+<div class="adminmenu">
+<table>
+<td>
+<img src="admin/img/templates.png">
+</td>
+<td>
+<a href="http://niun.ru/dopolnenie/shablony/" target="_blank">Бесплатные шаблоны на NiunCMS</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/modules.png">
+</td>
+<td>
+<a href="http://niun.ru/dopolnenie/moduli/" target="_blank">Бесплатные модули на NiunCMS</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/license.png">
+</td>
+<td>
+<a href="?page=license" target="_blank">Лицензионное соглашение</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/about.png">
+</td>
+<td>
+<a href="?page=about" target="_blank">Об NiunCMS и её авторе</a>
+</td>
+</table>
+</div>
+</td>
+<td valign="top" width="100%">
+<div class="block">Все записи личного блога</div>
+<div class="txt">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tr>
+		<td width="300px" colspan="2" height="30px" valign="top" style="font-weight:bold;padding:5px;background-color:#F6F6F6;">Название</td>
+		<td valign="top" style="font-weight:bold;padding:5px;background-color:#F6F6F6;">Автор</td>
+		<td valign="top" style="font-weight:bold;padding:5px;background-color:#F6F6F6;">Категория</td>
+		<td valign="top" colspan="4" style="padding:5px;background-color:#F6F6F6;">&nbsp;</td>
+	</tr>
+	
+	[_while]
+	<tr>
+		<td style="border-top:1px solid #dcdcdc;padding:5px;" align="center"><img src="[_pablick]" border="0px"></td>
+		<td width="300px" valign="top" style="border-top:1px solid #dcdcdc;padding:5px;"><a style="font-weight:100;" title="Редактировать запись?" href="?page=edd_content&id=[_id]">[_title]</a></td>
+		<td valign="top" style="border-top:1px solid #dcdcdc;padding:5px;">[_author]</td>
+		<td valign="top" style="border-top:1px solid #dcdcdc;padding:5px;"><a style="font-weight:100;" href="?page=edd_cat&id=[_id]">[_cat]</a></td>
+		<td style="border-top:1px solid #dcdcdc;padding:5px;" align="center"><a style="font-weight:100;" href="[_link]" title="Открыть пост на сайте?" target="_blank"><img src="admin/img/loope.jpg" border="0px"></a></td>
+		<td style="border-top:1px solid #dcdcdc;padding:5px;" align="center"><a style="font-weight:100;" href="?page=cfgpost&id=[_id]" title="Настройка поста"><img src="admin/img/config.jpg" border="0px"></a></td>
+		<td style="border-top:1px solid #dcdcdc;padding:5px;" align="center"><a style="font-weight:100;" href="?page=edd_comm&id=[_id]" title="Редактирование поста"><img src="admin/img/edd.jpg" border="0px"></a></td>
+		<td style="border-top:1px solid #dcdcdc;padding:5px;" align="center"><a style="font-weight:100;" href="?page=edd_content&del_post=[_id]" title="Удалить запись?"><img src="admin/img/del.jpg" border="0px"></a></td>
+	</tr>
+	[_while]
+</table>
+<br/><br/>
+</td>
+</table></div>

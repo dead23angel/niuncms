@@ -1,0 +1,96 @@
+﻿	/* Новостной шаблон awesome by Rock Star
+		Дизайн и верстка — Rock Star / http://www.weblancer.net/users/RockStar/
+		
+	- - - - - - - - - - - - - - - - - - - - - - - -
+	
+		2. main.css, структура сайта				*/
+		
+		/* Структура
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#page {width: 1000px;}
+		#padding16 {padding-left: 16px; padding-right: 16px;}
+		
+		/* Шапка сайта
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#logo-bg {background-image: url(../images/logo-bg.png); width: 531px; height: 175px; display: block;}
+		
+		#logo {padding-top: 64px;}
+		a.logo {background-image: url(../images/logo.png); background-position: top; width: 355px; height: 44px; display: block;}
+		a:hover.logo {background-image: url(../images/logo.png); background-position: bottom;}
+			
+		/* Панель пользователя
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#login-bg {background-image: url(../images/login-bg.png); width: 338px; height: 172px; display: block; float: right; margin-top: 24px;}
+		#login-pad {padding-left: 26px; padding-top: 51px;}
+		
+		/* Поиск
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#search-bg {background-image: url(../images/search-bg.png); width: 373px; height: 97px; display: block;}
+		#search-pad {padding-left: 15px; padding-top: 34px;}
+		
+		/* Спидбар
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#border-bottom2 {background-image: url(../images/border-bottom2.png); width: 507px; height: 3px; margin-top: 3px;}
+		
+		/* Меню с лева
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#lmenu-bg {background-image: url(../images/lmenu-bg.png); width: 226px; display: block;}
+		#lmenu-bottom {background-image: url(../images/lmenu-bottom.png); width: 226px; height: 15px; display: block;}
+		#lmenu-bg-light {background-image: url(../images/lmenu-bg-light.png); width: 226px; display: block;}
+		#lmenu-bottom-light {background-image: url(../images/lmenu-bottom-light.png); width: 226px; height: 15px; display: block;}
+		#menu-pad {padding-left: 10px; padding-right: 5px; padding-top: 12px;}
+		#menu-padding {padding-left: 10px; padding-right: 10px; padding-top: 12px;}
+		
+		#lmenu0 {width: 226px; height: 31px; display: block;}
+		#lmenu01 {background-image: url(../images/menu/lmenu01.png); width: 226px; height: 31px; display: block;}
+		#lmenu02-light {background-image: url(../images/menu/lmenu02-light.png); width: 226px; height: 31px; display: block;}
+		
+		/* Меню с права
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#rmenu-bg {background-image: url(../images/lmenu-bg.png); width: 182px; display: block;}
+		#rmenu-bottom {background-image: url(../images/rmenu-bottom.png); width: 182px; height: 15px; display: block;}
+		#rmenu-bg-light {background-image: url(../images/lmenu-bg-light.png); width: 182px; display: block;}
+		#rmenu-bottom-light {background-image: url(../images/rmenu-bottom-light.png); width: 182px; height: 15px; display: block;}
+		
+		#rmenu01-light {background-image: url(../images/menu/rmenu01-light.png); width: 182px; height: 31px; display: block;}
+		#rmenu02 {background-image: url(../images/menu/rmenu02.png); width: 182px; height: 31px; display: block;}
+		#rmenu03 {background-image: url(../images/menu/rmenu03.png); width: 182px; height: 31px; display: block;}
+		#rmenu04 {background-image: url(../images/menu/rmenu04.png); width: 182px; height: 31px; display: block;}
+		
+		/* Контент сайта
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#intresting {background-image: url(../images/inresting.png); width: 126px; height: 17px; margin-bottom: 8px;}
+		
+		#lastnews-cat-1 {background-image: url(../images/lastnews-cat-1.png); width: 214px; height: 17px;}
+		#lastnews-cat-2 {background-image: url(../images/lastnews-cat-2.png); width: 214px; height: 17px;}
+		#lastnews-cat-3 {background-image: url(../images/lastnews-cat-3.png); width: 214px; height: 17px;}
+		#lastnews-cat-4 {background-image: url(../images/lastnews-cat-4.png); width: 214px; height: 17px;}
+		
+		/* Подвал
+		- - - - - - - - - - - - - - - - - - - - - - - - */
+		#footer {background-image: url(../images/footer.png); width: 100%; height: 144px; display: block; margin-top: 32px;}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/* Новостной шаблон awesome by Rock Star
+			Дизайн и верстка — Rock Star / http://www.weblancer.net/users/RockStar/
+													 http://4dle.ru/user/Rock+Star/
+													 
+			Вы просматриваете наши исходные коды, вы понимаете, что вам здесь не рады? >_< */

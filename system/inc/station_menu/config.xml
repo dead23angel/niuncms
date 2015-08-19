@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<blocki>
+  <name>Статичное меню</name>
+  <author>NiunCMS Team</author>
+  <site>http://niun.ru/</site>
+  <description>Мод добавляет дополнительное отображение меню без рубрики</description>
+  <control>0</control>
+  <installer>1</installer>
+</blocki>

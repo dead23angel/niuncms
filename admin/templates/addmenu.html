@@ -1,0 +1,59 @@
+﻿<div class="h1" style="margin-top:10px">Добавление нового пункта меню / Категории</div>
+<form action="?page=add_menu" method="post" name="form">
+<table class="headerWIN" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td>
+Имя пункта:
+</td>
+<td>
+<input style="width:595px;" class="inpu" autocomplete="off" name="addname_p" id="addname_p" onclick="if(document.getElementById('addname_p').value == 'Введите имя пункта')document.getElementById('addname_p').value = '';" type="text" value="Введите имя пункта">
+</td>
+</tr>
+<tr>
+<td>
+Ссылка пункта:
+</td>
+<td>
+<input style="width:595px;" class="inpu" autocomplete="off" name="addhref_p" id="addhref_p" onclick="if(document.getElementById('addhref_p').value == 'Введите ссылку пункта')document.getElementById('addhref_p').value = '';" type="text" value="Введите ссылку пункта">
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<br />
+<div id="listmenu"></div>
+			<div id="sublistmenu" style="cursor:pointer;"><img onclick="ajax_blog('add');" src="admin/img/edd.jpg" alt="Показать список материалов" title="Показать список материалов"></div>
+<br />
+			</td>
+</tr>
+</table>
+<div class="h1" style="margin-top:10px">Заполнить если, добавляете категорию а не пункт меню.</div>
+<table class="headerWIN" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td>
+Заголовок категории:
+</td>
+<td>
+<input style="width:595px;" class="inpu" autocomplete="off" onclick="if(document.getElementById('addtitleM').value == 'Заголовок категории*')document.getElementById('addtitleM').value = '';" id="addtitleM" name="addtitleM" type="text" value="Заголовок категории*">
+</td>
+</tr>
+<tr>
+<td>
+Описание категории:
+</td>
+<td>
+<input style="width:595px;" class="inpu" autocomplete="off" onclick="if(document.getElementById('addmetadM').value == 'Описание категории*')document.getElementById('addmetadM').value = '';" id="addmetadM" name="addmetadM" type="text" value="Описание категории*">
+</td>
+</tr>
+<tr>
+<td>
+Ключевые слова категории:
+</td>
+<td>
+<input style="width:595px;" class="inpu" autocomplete="off" onclick="if(document.getElementById('addmetakM').value == 'Ключевые слова категории*')document.getElementById('addmetakM').value = '';" id="addmetakM" name="addmetakM" type="text" value="Ключевые слова категории*">
+</td>
+</tr>
+</table>
+<input type="submit" class="inp" value="Добавить пункт">
+</form>

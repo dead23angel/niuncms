@@ -1,0 +1,13 @@
+﻿User-Agent: *
+Disallow: /admincp/
+Disallow: /rss/
+Disallow: /data/
+Disallow: /source/
+Disallow: /static/
+Disallow: /source/users/module/
+Disallow: /templates/
+Disallow: /data/upload/
+Disallow: /source/cache/
+Disallow: /?*
+Disallow: /reader.xml
+Disallow: /mail.xml

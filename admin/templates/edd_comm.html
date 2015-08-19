@@ -1,0 +1,24 @@
+﻿<div class="block">Редактирование комментария</div>
+<div class="txt">
+<table class="headerWIN" width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="top" style="padding:10px;">		
+		<form action="index.php?page=edd_comm&edd_comm=[_id]" method="post" name="form">
+			<input name="eddid_post" type="hidden" value="[_blog]">
+			<table width="450px" cellpadding="5" cellspacing="0" border="0">
+				<tr>
+					<td>Автор:</td>
+					<td><input class="inpu" style="width:350px;font-weight:100;font-size:11px;" autocomplete="off" name="eddname_comm" type="text" value="[_author]"></td>
+				</tr>
+				<tr>
+					<td>Комментарий:</td>
+					<td><textarea class="inpu" style="width:350px;font-weight:100;font-size:11px;font-family:Arial;" autocomplete="off" name="eddtxt_comm" rows="10">[_text]</textarea></td>
+				</tr>
+				</table>			
+			<br/><input type="submit" class="inpa" value="Редактировать комментарий">
+		</form>		
+		</td>
+	</tr>
+</table>
+<br/><br/>
+</div>

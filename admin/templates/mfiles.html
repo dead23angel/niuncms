@@ -1,0 +1,171 @@
+﻿<table valign="top">
+<td valign="top">
+<div class="adminmenu">
+<stat>Помощь</stat>
+<p>
+<a>Не загружаються файлы? попробуйте поставить на папку data права 777</a>
+</div>
+<p>
+<div class="adminmenu">
+<stat>Разделы AdminCP</stat>
+<p>
+<table align = "center" width="100%">
+<td align = "center" class="pynkt" title="Добавление записи в личный блог.">
+<a href="?page=add_content"><img src="admin/img/add.png" border="0px"></a>
+<br>
+<a href="?page=add_content">Опубликовать</a>
+</td>
+
+<td align = "center" class="pynkt" title="Все записи блога, где вы сможете изменять, удалять, модерировать записи а так-же комментарии.">
+<a href="?page=all_content"><img src="admin/img/all.png" border="0px"></a>
+<br>
+<a href="?page=all_content">Все записи</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Настройка меню вашего сайта.">
+<a href="?page=all_menu"><img src="admin/img/menu.png" border="0px"></a>
+<br>
+<a href="?page=all_menu">Меню сайта</a>
+</td>
+
+<td align = "center" class="pynkt" title="Менеджер файлов для хранение файлов.">
+<a href="?page=mfiles"><img src="admin/img/files.png" border="0px"></a>
+<br>
+<a href="?page=mfiles">Файлы</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Сохрани в галерею картинки и публикуй их прямо в блог.">
+<a href="?page=galery"><img src="admin/img/gallery.png" border="0px"></a>
+<br>
+<a href="?page=galery">Галерея</a>
+</td>
+
+<td align = "center" class="pynkt" title="Управление группами E-Mail в комментариях.">
+<a href="?page=user"><img src="admin/img/user_comm.png" border="0px"></a>
+<br>
+<a href="?page=user">Пользователи</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Опросы для ваших посетителей блога.">
+<a href="?page=quest"><img src="admin/img/poll.png" border="0px"></a>
+<br>
+<a href="?page=quest">Опросы</a>
+</td>
+
+<td align = "center" class="pynkt" title="Установка/Настройка модулей.">
+<a href="?page=modules"><img src="admin/img/modules.png" border="0px"></a>
+<br>
+<a href="?page=modules">Модули</a>
+</td>
+
+<tr>
+
+<td align = "center" class="pynkt" title="Обращение к вам из формы обратной связи.">
+<a href="?page=contact"><img src="admin/img/mail.png" border="0px"></a>
+<br>
+<a href="?page=contact">Почта</a>
+</td>
+
+<td align = "center" class="pynkt" title="Настройка сайта.">
+<a href="?page=configblog"><img src="admin/img/setting.png" border="0px"></a>
+<br>
+<a href="?page=configblog">Настройка</a>
+</td>
+
+</table>
+</div>
+<p>
+<div class="adminmenu">
+<table>
+<td>
+<img src="admin/img/templates.png">
+</td>
+<td>
+<a href="http://niun.ru/dopolnenie/shablony/" target="_blank">Бесплатные шаблоны на NiunCMS</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/modules.png">
+</td>
+<td>
+<a href="http://niun.ru/dopolnenie/moduli/" target="_blank">Бесплатные модули на NiunCMS</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/license.png">
+</td>
+<td>
+<a href="?page=license" target="_blank">Лицензионное соглашение</a>
+</td>
+<tr>
+<td>
+<img src="admin/img/about.png">
+</td>
+<td>
+<a href="?page=about" target="_blank">Об NiunCMS и её авторе</a>
+</td>
+</table>
+</div>
+</td>
+<td valign="top" width="100%">
+<div class="block">Файловый менеджер</div>
+<div class="txt">
+<script>var list = ([_listSCRIPT]*40)-40;</script>
+<table class="headerWIN" width="300px" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tr>
+		<td valign="top" align="center" style="padding:10px;">
+			<form action="?page=mfiles" method="post" ENCTYPE="multipart/form-data" name="fimg">
+				<input size="50" class="inp" name="userfile" type="file">
+				<br/><br/><input class="inp" name="submit" type="submit" value="Добавить">
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" align="center" style="padding-bottom:10px;"><input style="width:200px;font-weight:100;font-size:11px;border:0px;text-align: center;" type="text" value="[_url]" /></td>
+	</tr>
+</table>
+<br/><br/>	
+<table class="headerWIN" width="600px" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tr>
+		<td align="center" style="padding:10px;background-color:#F6F6F6;">
+			<a href="?page=mfiles&scan=1">Список изображений</a> :: 
+			<a href="?page=mfiles&scan=2">Список архивов</a> :: 
+			<a href="?page=mfiles&scan=0">Закрыть список</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+<div style="display:[_style];">
+<form action="?page=mfiles" method="post" name="del">
+<table width="600px" cellpadding="0" cellspacing="0" border="0" align="center">
+[_file]
+	<tr>
+		<td style="border-top:1px solid #dcdcdc;" width="40px" height="50px"><a href="[_img]" style="margin-left:10px;" target="_blank"><img src="[_img]" border="0px" width="40px" height="40px"></a></td>
+		<td style="border-top:1px solid #dcdcdc;" align="center"><input style="width:200px;font-weight:100;font-size:11px;border:0px;" type="text" value="[_link]" /></td>
+		<td style="border-top:1px solid #dcdcdc;" align="center">[_date]</td>
+		<td style="border-top:1px solid #dcdcdc;" align="center"><input id="checkbox_[_del]" type="checkbox" name="delF[[_del]]" value="[_delNAME]" /></td>
+	</tr>
+[_file]
+</table>
+<br/>
+<table style="border-top:1px solid #dcdcdc;padding-top:20px;" width="100%" cellpadding="5" cellspacing="0" border="0" align="center">
+	<tr>
+		<td align="right" width="50%"><div id="divSELall" style="cursor:pointer;" onclick="selectCHBOX();">Выделить все файлы</div></td>
+		<td align="left" width="50%"><input name="submit" type="submit" value="Удалить выбранные"></td>
+	</tr>
+</table>
+</form>
+<br/>
+</div>
+		</td>
+	</tr>
+</table>
+<br/><br/>
+</td>
+</table></div>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<blocki>
+  <name>Статичные блоки</name>
+  <author>NiunCMS Team</author>
+  <site>http://niun.ru/</site>
+  <description>Мод добавляет возможность создавать блоки в шаблоне например с рекламой.</description>
+  <control>1</control>
+  <installer>1</installer>
+</blocki>

@@ -1,0 +1,32 @@
+﻿<div class="h1" style="margin-top:10px">Редактирование блока</div>
+<table>
+<form action="" method="post" name="form">
+<td>
+Название блока:
+</td>
+<td>
+<input style="width:595px;" class="inpu" name="eddrsvname" type="text" value="[_name]">
+</td>
+<tr>
+<td>
+Шаблон блока:
+</td>
+<td>
+<select style="width:600px;" class="inpu" name="eddrsvtpl">
+							[_option]
+						</select>
+</td>
+<tr>
+<td>
+Контент блока:
+</td>
+<td>
+			<input name="edd_rsvid" type="hidden" value="[_id]">
+			<textarea style="width:600px;height:200px;" class="inpu" id="txt_post" name="eddrstxt" rows="10">[_text]</textarea>
+</td>
+<tr>
+<td>
+<input type="submit" class="inp" value="Редактировать блок">
+</td>
+</form>	
+</table>
