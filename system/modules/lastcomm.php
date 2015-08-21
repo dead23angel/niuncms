@@ -1,26 +1,26 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
 function lastcomm($chpu)
 {
-$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT `author`, `id`,`blog`, `text` FROM comm WHERE status < '3' AND view='1' ORDER BY id DESC LIMIT 5");
-$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+$result_index = Registry::getInstance()->DataBase->Query("SELECT `author`, `id`,`blog`, `text` FROM comm WHERE status < '3' AND view='1' ORDER BY id DESC LIMIT 5");
+$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 if($myrow_index != "")
 {
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('lastcomm');
+$sm_read = Registry::getInstance()->Template->Fetch('lastcomm');
 
 preg_match("/\[_divmenu\](.*?)\[_divmenu\]/s",$sm_read,$a);
 
 do
 {
-$result_blog = Niun::getInstance()->Get('DataBase')->Query("SELECT `id`, `nameurl`, `title`, `cat` FROM blog WHERE id='".$myrow_index['blog']."'");
-$myrow_blog = Niun::getInstance()->Get('DataBase')->GetArray($result_blog);
+$result_blog = Registry::getInstance()->DataBase->Query("SELECT `id`, `nameurl`, `title`, `cat` FROM blog WHERE id='".$myrow_index['blog']."'");
+$myrow_blog = Registry::getInstance()->DataBase->GetArray($result_blog);
 
 $link = (!isset($link)) ? '' : $link;
 
@@ -46,7 +46,7 @@ $edd_tamp = str_replace("[_author]",$myrow_index['author'],$edd_tamp);
 
 $link .= $edd_tamp;
 }
-while($myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index));
+while($myrow_index = Registry::getInstance()->DataBase->GetArray($result_index));
 $lastcomm = preg_replace("/\[_divmenu\].*?\[_divmenu\]/s",$link,$sm_read);
 }
 return $lastcomm;

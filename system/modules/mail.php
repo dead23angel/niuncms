@@ -1,10 +1,11 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
+
 function statistictoEMAIL()
 {
 	$toFILE = file(ROOT . DS . "mail.xml");
@@ -26,17 +27,17 @@ function statistictoEMAIL()
 	
 	if($timeSEND != $timeNOW)
 	{
-		$emailRESULT = Niun::getInstance()->Get('DataBase')->Query("SELECT email FROM user WHERE id='1'");
-		$emailDB = Niun::getInstance()->Get('DataBase')->GetArray($emailRESULT);
+		$emailRESULT = Registry::getInstance()->DataBase->Query("SELECT email FROM user WHERE id='1'");
+		$emailDB = Registry::getInstance()->DataBase->GetArray($emailRESULT);
 		
-		$newcommRESULT = Niun::getInstance()->Get('DataBase')->Query("SELECT COUNT(*) FROM comm WHERE loock='0' AND status<'3'");
-		$newcomm = Niun::getInstance()->Get('DataBase')->GetArray($newcommRESULT);		
+		$newcommRESULT = Registry::getInstance()->DataBase->Query("SELECT COUNT(*) FROM comm WHERE loock='0' AND status<'3'");
+		$newcomm = Registry::getInstance()->DataBase->GetArray($newcommRESULT);		
 
-		$premodercommRESULT = Niun::getInstance()->Get('DataBase')->Query("SELECT COUNT(*) FROM comm WHERE status='3'");
-		$premodercomm = Niun::getInstance()->Get('DataBase')->GetArray($premodercommRESULT);
+		$premodercommRESULT = Registry::getInstance()->DataBase->Query("SELECT COUNT(*) FROM comm WHERE status='3'");
+		$premodercomm = Registry::getInstance()->DataBase->GetArray($premodercommRESULT);
 		
-		$adminmessRESULT = Niun::getInstance()->Get('DataBase')->Query("SELECT COUNT(*) FROM mess_admin WHERE loock='0'");
-		$adminmess = Niun::getInstance()->Get('DataBase')->GetArray($adminmessRESULT);		
+		$adminmessRESULT = Registry::getInstance()->DataBase->Query("SELECT COUNT(*) FROM mess_admin WHERE loock='0'");
+		$adminmess = Registry::getInstance()->DataBase->GetArray($adminmessRESULT);		
 		
 		$email = $emailDB['email'];
 		$them = "Статистика сайта";

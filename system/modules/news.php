@@ -1,15 +1,15 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
-if(!$headerMETA = Niun::getInstance()->Get('Cache')->Get('header', 3600))
+if(!$headerMETA = Registry::getInstance()->Cache->Get('header', 3600))
 {
-$result_meta = Niun::getInstance()->Get('DataBase')->Query("SELECT `title`, `meta_d`, `meta_k` FROM page WHERE id='1'");
-$myrow_meta = Niun::getInstance()->Get('DataBase')->GetArray($result_meta);
+$result_meta = Registry::getInstance()->DataBase->Query("SELECT `title`, `meta_d`, `meta_k` FROM page WHERE id='1'");
+$myrow_meta = Registry::getInstance()->DataBase->GetArray($result_meta);
 
 	if($myrow_meta != "")
 	{
@@ -18,15 +18,15 @@ $myrow_meta = Niun::getInstance()->Get('DataBase')->GetArray($result_meta);
 		$headerMETA[2] = $myrow_meta['meta_k'];
 		$headerMETA = implode("[META]",$headerMETA);
 		
-		Niun::getInstance()->Get('Cache')->Set('header', $headerMETA);
+		Registry::getInstance()->Cache->Set('header', $headerMETA);
 	}
 }
 
 $headerMETA = explode("[META]",$headerMETA);
 
-Niun::getInstance()->Get('Template')->header_title = $headerMETA[0];
-Niun::getInstance()->Get('Template')->header_metaD = $headerMETA[1];
-Niun::getInstance()->Get('Template')->header_metaK = $headerMETA[2];
+Registry::getInstance()->Template->header_title = $headerMETA[0];
+Registry::getInstance()->Template->header_metaD = $headerMETA[1];
+Registry::getInstance()->Template->header_metaK = $headerMETA[2];
 
 function index_page($chpu, $pn)
 {
@@ -34,8 +34,8 @@ require_once (ROOT . DS . 'system' . DS . 'modules' . DS . 'navig.php');
 $limit = navig(5,$pn,"","index",$chpu);
 $links = $limit[2];
 
-$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT * FROM blog WHERE viewindex='1' AND pablick='1' ORDER BY date_b DESC LIMIT $limit[0], $limit[1]");
-$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+$result_index = Registry::getInstance()->DataBase->Query("SELECT * FROM blog WHERE viewindex='1' AND pablick='1' ORDER BY date_b DESC LIMIT $limit[0], $limit[1]");
+$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 if(!isset($myrow_index)) {
 	$news = '<p align=\'center\'>Нет записей в базе данных</p>';
@@ -45,7 +45,7 @@ if(!isset($myrow_index)) {
 
 if($myrow_index != "")
 {
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('news');
+$sm_read = Registry::getInstance()->Template->Fetch('news');
 do
 {
 $edd_tamp = $sm_read;
@@ -67,7 +67,7 @@ $edd_tamp = str_replace("[_comm]",$myrow_index['comm'],$edd_tamp);
 
 $news .= $edd_tamp;
 }
-while($myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index));
+while($myrow_index = Registry::getInstance()->DataBase->GetArray($result_index));
 
 if($links > 1)
 	$news .= listnav($links,$pn,6,'','index',$chpu);

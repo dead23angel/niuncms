@@ -1,20 +1,20 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
 function galery($gal)
 {
-$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT `title_img`, `txt`, `href` FROM galery WHERE id_galery = '$gal'");
-$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+$result_index = Registry::getInstance()->DataBase->Query("SELECT `title_img`, `txt`, `href` FROM galery WHERE id_galery = '$gal'");
+$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 if($myrow_index != "")
 {
 
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('galery');
+$sm_read = Registry::getInstance()->Template->Fetch('galery');
 
 $idw=0;
 do
@@ -24,7 +24,7 @@ do
 	$img[$idw][2] = $myrow_index['href'];
 	$idw++;
 }
-while($myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index));
+while($myrow_index = Registry::getInstance()->DataBase->GetArray($result_index));
 
 preg_match("/\[_tdTABLE\](.*?)\[_tdTABLE\]/s",$sm_read,$copy);
 
@@ -66,7 +66,7 @@ return $sm_read;
 
 function viewphoto()
 {
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('viewphoto');
+$sm_read = Registry::getInstance()->Template->Fetch('viewphoto');
 
 return $sm_read;
 }

@@ -1,15 +1,15 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
 function SiteMenu ()
 {
-	$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT * FROM menu ORDER BY position");
-	$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+	$result_index = Registry::getInstance()->DataBase->Query("SELECT * FROM menu ORDER BY position");
+	$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 	if ($myrow_index != "")
 	{
@@ -26,7 +26,7 @@ function SiteMenu ()
 			$i++;
 		}
 		
-		while($myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index));
+		while($myrow_index = Registry::getInstance()->DataBase->GetArray($result_index));
 
 		return $commMASS;
 	}

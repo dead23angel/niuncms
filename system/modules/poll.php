@@ -1,17 +1,17 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
-if(!$q = Niun::getInstance()->Get('Cache')->Get('pollid', 604800))
+if(!$q = Registry::getInstance()->Cache->Get('pollid', 604800))
 {
-	$result_poll = Niun::getInstance()->Get('DataBase')->Query("SELECT `id` FROM poll WHERE activ = '1'");
-	$myrow_poll = Niun::getInstance()->Get('DataBase')->GetArray($result_poll);
+	$result_poll = Registry::getInstance()->DataBase->Query("SELECT `id` FROM poll WHERE activ = '1'");
+	$myrow_poll = Registry::getInstance()->DataBase->GetArray($result_poll);
 
 	$q = "quest_".$myrow_poll['id'];
 	
-	Niun::getInstance()->Get('Cache')->Set("pollid",$q);
+	Registry::getInstance()->Cache->Set("pollid",$q);
 }
 
 if (isset($_POST['quePOLL'])){$quePOLL = $_POST['quePOLL'];}
@@ -19,21 +19,21 @@ if(isset($quePOLL))
 {
 	if(preg_match("/^[0-9]+$/",$quePOLL))
 	{
-		$result_pollup = Niun::getInstance()->Get('DataBase')->Query("SELECT `otvet` FROM poll WHERE activ = '1'");
-		$myrow_pollup = Niun::getInstance()->Get('DataBase')->GetArray($result_pollup);
+		$result_pollup = Registry::getInstance()->DataBase->Query("SELECT `otvet` FROM poll WHERE activ = '1'");
+		$myrow_pollup = Registry::getInstance()->DataBase->GetArray($result_pollup);
 
 		$otvet = explode("|",$myrow_pollup['otvet']);
 		$otvet[$quePOLL]++;
 		$otvet = implode("|",$otvet);
-		$result_up_q = Niun::getInstance()->Get('DataBase')->Query ("UPDATE poll SET otvet='$otvet' WHERE activ='1'");
+		$result_up_q = Registry::getInstance()->DataBase->Query ("UPDATE poll SET otvet='$otvet' WHERE activ='1'");
 	
 		preg_match("/http:\/\/(.*?)\//s",$server_root,$cookieSITE);
 		$cookieSITE = str_replace("www.","",$cookieSITE[1]);
 	
 		setcookie($q,"YES",time()+31536000,"/",".".$cookieSITE);
 	
-		Niun::getInstance()->Get('Cache')->Clean("poll");
-		Niun::getInstance()->Get('Cache')->Clean("pollform");
+		Registry::getInstance()->Cache->Clean("poll");
+		Registry::getInstance()->Cache->Clean("pollform");
 	}	
 	header("location: ".getenv('HTTP_REFERER'));
 	exit;	
@@ -41,8 +41,8 @@ if(isset($quePOLL))
 
 function poll($step)
 {
-$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT * FROM poll WHERE activ = '1'");
-$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+$result_index = Registry::getInstance()->DataBase->Query("SELECT * FROM poll WHERE activ = '1'");
+$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 if($myrow_index != "")
 {
@@ -61,7 +61,7 @@ return $result;
 
 function opros($val,$que)
 {
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('pollFORM');
+$sm_read = Registry::getInstance()->Template->Fetch('pollFORM');
 
 $sm_read = str_replace("[_qu]",$que,$sm_read);
 preg_match("/\[_while\](.*?)\[_while\]/s",$sm_read,$a);
@@ -85,7 +85,7 @@ return $sm_read;
 
 function resultQUE($val,$kol,$que,$step)
 {
-$sm_read = Niun::getInstance()->Get('Template')->Fetch('poll');
+$sm_read = Registry::getInstance()->Template->Fetch('poll');
 
 $sm_read = str_replace("[_qu]",$que,$sm_read);
 preg_match("/\[_while\](.*?)\[_while\]/s",$sm_read,$a);

@@ -1,19 +1,23 @@
 <?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 define('NiunCMS', true);
 define('DEVELOPER', true);
 
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
+define('ENGINEDIR', dirname(__FILE__) . '/system');
 
-if (DEVELOPER == true) {
+if (DEVELOPER == true)
+{
 	error_reporting(E_ALL);
 	ini_set('display_errors','On');
-} else {
+}
+else
+{
 	error_reporting(E_ALL);
 	ini_set('display_errors','Off');
 	ini_set('log_errors', 'On');
@@ -22,14 +26,12 @@ if (DEVELOPER == true) {
 
 require_once(ROOT . DS . 'system' . DS . 'engine.php');
 
-Niun::getInstance()->Get('Template')->theme = @$_SERVER['DIRECTORY_ROOT'] . DS . 'templates' . DS . $config['theme']; 
-Niun::getInstance()->Get('Template')->generator = 'Powered by NiunCMS v2.0 (http://niun.ru)';
-Niun::getInstance()->Get('Template')->author= 'Developed by Dead_Angel (http://rdl-team.ru)';
+Registry::getInstance()->Template->theme = Request::Server('DIRECTORY_ROOT', false, false) . DS . 'templates' . DS . $config['theme']; 
+Registry::getInstance()->Template->generator = 'Powered by NiunCMS v2.0 (http://niuncms.ru)';
+Registry::getInstance()->Template->author= 'Developed by CWTeam';
 
-Niun::getInstance()->Get('Template')->Display();
+Registry::getInstance()->Template->Display();
 
-echo "\n" . '<!-- NiunCMS выполнила ' . Niun::getInstance()->get('DataBase')->query_num . ' запроса в базу данных.-->' .
-	 "\n" . '<!-- NiunCMS сгенерировала страницу за: ' . Niun::getInstance()->Get('Param')->Stop() . ' секунд.-->' .
-	 "\n" . '<!-- NiunCMS заняла памяти: ' . Niun::getInstance()->Get('Param')->Memory() . '.-->';
-
-?>
+echo "\n" . '<!-- NiunCMS выполнила ' . Registry::getInstance()->DataBase->count . ' запроса в базу данных.-->' .
+	 "\n" . '<!-- NiunCMS сгенерировала страницу за: ' . Niun::Stop() . ' секунд.-->' .
+	 "\n" . '<!-- NiunCMS заняла памяти: ' . Niun::Memory() . '.-->';

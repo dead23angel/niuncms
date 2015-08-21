@@ -1,8 +1,8 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
@@ -13,8 +13,8 @@ function navig($post,$pn,$cat,$page,$chpu)
 if($page == "cat") $sql = "SELECT COUNT(*) FROM blog WHERE cat='$cat' AND viewindex='1' AND pablick='1'";
 if($page == "index") $sql = "SELECT COUNT(*) FROM blog WHERE viewindex='1' AND pablick='1'";
 
-$result3 = Niun::getInstance()->Get('DataBase')->Query($sql);
-$myrow3 = Niun::getInstance()->Get('DataBase')->GetArray($result3);
+$result3 = Registry::getInstance()->DataBase->Query($sql);
+$myrow3 = Registry::getInstance()->DataBase->GetArray($result3);
 
 $full = $myrow3[0];
 $links = (($full - 1) / $post) + 1;
@@ -91,7 +91,7 @@ function linkBLOCK($page,$chpu,$pn,$cat,$step)
 		if($chpu == 1)
 		{
 			if($page == "cat")$link = gen_catalog($cat)."page/".$pn."/";
-			if($page == "index")$link = Niun::getInstance()->Get('DataBase')->server_root. "page/".$pn."/";
+			if($page == "index")$link = Registry::getInstance()->DataBase->server_root. "page/".$pn."/";
 		}
 		
 		$result = "<a href='".$link."'>".$pn."</a> ";
@@ -103,4 +103,3 @@ function linkBLOCK($page,$chpu,$pn,$cat,$step)
 
 return $result;
 }
-?>

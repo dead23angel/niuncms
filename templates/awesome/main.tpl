@@ -169,7 +169,7 @@ $(function () {
 		<td valign="top">
 
 			<!-- Слайдер -->
-			<div id="intresting"></div> <? Niun::getInstance()->Get('Template')->Display('slider'); ?>
+			<div id="intresting"></div> <? Registry::getInstance()->Template->Display('slider'); ?>
 			
 			<?=$this->txt?>
 		
@@ -178,7 +178,7 @@ $(function () {
 		<!-- menu #1 -->
 		<td style="padding-left: 16px;" valign="top" width="226">
 
-			<?php echo Niun::getInstance()->Get('Template')->blocki; ?>
+			<?php echo Registry::getInstance()->Template->blocki; ?>
 
 		</td>
 		

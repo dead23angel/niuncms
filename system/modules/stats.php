@@ -2,25 +2,25 @@
 
 function stats()
 {
-	if(!Niun::getInstance()->Get('Template')->stats = Niun::getInstance()->Get('Cache')->Get('stats', 86400))
+	if(!Registry::getInstance()->Template->stats = Registry::getInstance()->Cache->Get('stats', 86400))
 	{
-		$template = Niun::getInstance()->Get('Template')->Fetch('stats');
+		$template = Registry::getInstance()->Template->Fetch('stats');
 
-		$row      = Niun::getInstance()->Get('DataBase')->GetArray(Niun::getInstance()->Get('DataBase')->Query("SELECT COUNT(*) as count FROM blog"));
+		$row      = Registry::getInstance()->DataBase->GetArray(Registry::getInstance()->DataBase->Query("SELECT COUNT(*) as count FROM blog"));
 		$allnews  = $row['count'];
 
-		$row      = Niun::getInstance()->Get('DataBase')->GetArray(Niun::getInstance()->Get('DataBase')->Query("SELECT COUNT(*) as count FROM user"));
+		$row      = Registry::getInstance()->DataBase->GetArray(Registry::getInstance()->DataBase->Query("SELECT COUNT(*) as count FROM user"));
 		$allusers = $row['count'];
 
 		$template = str_replace('{allnews}', $allnews, $template);
 		$template = str_replace('{allusers}', $allusers, $template);
 
-		Niun::getInstance()->Get('Template')->stats = $template;
+		Registry::getInstance()->Template->stats = $template;
 
-		Niun::getInstance()->Get('Cache')->Set('stats', Niun::getInstance()->Get('Template')->stats);
+		Registry::getInstance()->Cache->Set('stats', Registry::getInstance()->Template->stats);
 	}
 
-	return Niun::getInstance()->Get('Template')->stats;
+	return Registry::getInstance()->Template->stats;
 }
 
 ?>

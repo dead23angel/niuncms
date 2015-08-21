@@ -1,8 +1,8 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
@@ -10,12 +10,12 @@ function get_blocki()
 {
 	$blocki = allrswidgetblock();
 
-	Niun::getInstance()->Get('Template')->blocki = '';
+	Registry::getInstance()->Template->blocki = '';
 	
 	if (!empty($blocki))
 	{
-		$sm_read_y = Niun::getInstance()->Get('Template')->Fetch_Module('blocki', 'widget_y');
-		$sm_read_n = Niun::getInstance()->Get('Template')->Fetch_Module('blocki', 'widget_n');
+		$sm_read_y = Registry::getInstance()->Template->Fetch_Module('blocki', 'widget_y');
+		$sm_read_n = Registry::getInstance()->Template->Fetch_Module('blocki', 'widget_n');
 		
 		foreach ($blocki as $value)
 		{			
@@ -25,19 +25,19 @@ function get_blocki()
 			$copy_tpl = str_replace("[_name]",$value['name'],$copy_tpl);
 			$copy_tpl = str_replace("[_text]",$value['text'],$copy_tpl);
 			
-			Niun::getInstance()->Get('Template')->blocki .= $copy_tpl;
+			Registry::getInstance()->Template->blocki .= $copy_tpl;
 		}
 	}
 	
-	return Niun::getInstance()->Get('Template')->blocki;
+	return Registry::getInstance()->Template->blocki;
 }
 
 function allrswidgetblock()
 {
-	if(!$blocki = Niun::getInstance()->Get('Cache')->Get('blocki', 259200, true))
+	if(!$blocki = Registry::getInstance()->Cache->Get('blocki', 259200, true))
 	{
-		$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT * FROM blocki ORDER BY position");//Выводим из базы данных все
-		$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+		$result_index = Registry::getInstance()->DataBase->Query("SELECT * FROM blocki ORDER BY position");//Выводим из базы данных все
+		$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 		
 		if ($myrow_index != "")
 		{
@@ -51,12 +51,12 @@ function allrswidgetblock()
 				$blocki[$i]['tpl'] = $myrow_index['tpl'];
 				$i++;
 			}
-			while($myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index));
+			while($myrow_index = Registry::getInstance()->DataBase->GetArray($result_index));
 		}
 		
 		if (!isset($blocki)) $blocki = array();
 		
-		Niun::getInstance()->Get('Cache')->Set("blocki", $blocki);
+		Registry::getInstance()->Cache->Set("blocki", $blocki);
 	}
 	
 	return $blocki;
