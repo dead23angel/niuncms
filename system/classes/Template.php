@@ -1,10 +1,8 @@
 <?php
-
-/**
-* Template class
-* @copyright NiunCMS
-* @author Dead_Angel
-*/
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
