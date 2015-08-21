@@ -1,17 +1,13 @@
 ﻿<?php
-### NiunCMS - Community Management System ###
-### Powered by Dead_Angel                 ###
-### Лицензия: GNU/GPL v3                  ###
-### Официальный сайт NiunCMS: www.niun.ru ###
+### NiunCMS - Community Management System    ###
+### Powered by CWTeam                        ###
+### Лицензия: GNU/GPL v3                     ###
+### Официальный сайт NiunCMS: www.niuncms.ru ###
 
 if(!defined('NiunCMS')) die('Доступ запрещен');
 
-define('server_root', 'http://site.ru/');
-define('key_sole', 'key_sole');
+$server_root = 'http://niun/';
+$key_sole    = 'PvAYlnEdZBsp';
+$charset     = 'utf8';
 
-$settings = array('hostname'=>'localhost',
-                    'username'=>'user',
-                    'password'=>'pass',
-                    'database'=>'base');
-
-?>
+$db_config = ['adapter' => 'mysql', 'host'=>'localhost', 'user'=>'video', 'pass'=>'video', 'db'=>'video'];
