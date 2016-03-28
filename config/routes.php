@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 
 /** @var $router Router */
-$router = self::$app->make('router');
+$router = app('router');
 
 $router->get('/', function () {
     return 'hello world!';

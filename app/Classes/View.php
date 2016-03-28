@@ -18,11 +18,10 @@ class View
     public function __construct(Container $app)
     {
         $filesystem = $app->make('files');
-        $config = $app->make('config');
 
         $viewResolver = new EngineResolver;
 
-        $bladeCompiler = new BladeCompiler($filesystem, $config->get('pathToCompiledTemplates'));
+        $bladeCompiler = new BladeCompiler($filesystem, config('pathToCompiledTemplates'));
 
         $viewResolver->register('blade', function () use ($bladeCompiler, $filesystem) {
             return new CompilerEngine($bladeCompiler, $filesystem);
@@ -32,7 +31,7 @@ class View
             return new PhpEngine;
         });
 
-        $viewFinder = new FileViewFinder($filesystem, $config->get('pathsToTemplates'));
+        $viewFinder = new FileViewFinder($filesystem, config('pathsToTemplates'));
 
         $this->blade = new Factory($viewResolver, $viewFinder, $app->make('events'));
     }

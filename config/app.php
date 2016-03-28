@@ -15,15 +15,7 @@ return [
             'driver' => 'redis',
             'connection' => 'default'
         ],
-        'prefix' => 'niuncms',
-        'database.redis' => [
-            'cluster' => false,
-            'default' => [
-                'host' => '127.0.0.1',
-                'port' => 6379,
-                'database' => 0,
-            ],
-        ]
+        'prefix' => 'niuncms'
     ],
     'pathsToTemplates' => [
         __DIR__ . '/../app/Views'

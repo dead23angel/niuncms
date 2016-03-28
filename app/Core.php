@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
+use Illuminate\Database\Capsule\Manager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Http\Request;
 use Illuminate\Redis\Database;
@@ -14,7 +15,8 @@ class Core
 {
     public static $app = false;
 
-    public static function run() {
+    public function __construct()
+    {
         self::$app = new Container();
 
         self::$app->singleton('config', function () {
@@ -25,16 +27,12 @@ class Core
             return new Dispatcher($app);
         });
 
-        self::$app->singleton('router', function ($app) {
-            return new Router($app->make('events'));
-        });
-
         self::$app->bind('files', 'Illuminate\Filesystem\Filesystem');
         self::$app->bind('view', 'App\Classes\View');
 
-        if (self::$app->make('config')->get('cache.default') === 'redis') {
-            self::$app->singleton('redis', function ($app) {
-                return new Database($app->make('config')->get('cache.database.redis'));
+        if (config('cache.default') === 'redis') {
+            self::$app->singleton('redis', function () {
+                return new Database(config('database.redis'));
             });
         }
 
@@ -42,17 +40,45 @@ class Core
             $cacheManager = new CacheManager($app);
             return $cacheManager->store();
         });
+    }
+
+    public function run()
+    {
+        $this->addConnection();
+
+        self::$app->singleton('router', function () {
+            return new Router(app('events'));
+        });
 
         // Load the routes
         require_once __DIR__ . '/../config/routes.php';
 
-        // Create a request from server variables
         $request = Request::capture();
 
-        // Dispatch the request through the router
-        $response = self::$app->make('router')->dispatch($request);
+        $response = app('router')->dispatch($request);
 
-        // Send the response back to the browser
         $response->send();
+    }
+
+    /**
+     * Set the globally available instance of the container.
+     *
+     * @return $this->app
+     */
+    public static function getContainer()
+    {
+        return static::$app;
+    }
+
+    protected function addConnection()
+    {
+        $capsule = new Manager(app());
+        $capsule->addConnection([]);
+        
+        $capsule->setEventDispatcher(app('events'));
+        
+        $capsule->setAsGlobal();
+        
+        $capsule->bootEloquent();
     }
 }
