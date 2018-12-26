@@ -66,7 +66,7 @@ if(!Registry::getInstance()->Template->menu = Registry::getInstance()->Cache->Ge
 	$menunavig = menunavig($canon, $page_menunavig, $sub_menunavig);
 	Registry::getInstance()->Template->menu = menu($config['chpu'], $menunavig);
 
-	Registry::getInstance()->Cache->Set('menu', Niun::getInstance()->Get('Template')->menu);
+	Registry::getInstance()->Cache->Set('menu', Registry::getInstance()->Template->menu);
 }
 
 

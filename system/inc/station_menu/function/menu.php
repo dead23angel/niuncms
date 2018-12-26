@@ -1,4 +1,4 @@
-﻿<?
+<?php
 function site_menu()
 {
 	if(!Registry::getInstance()->Template->station_menu = Registry::getInstance()->Cache->Get('station_menu', 259200)) {

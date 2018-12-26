@@ -37,8 +37,8 @@ function DBmenunav($step,$sub)
 	if($step == 1)
 	{
 
-		$result_index = Niun::getInstance()->Get('DataBase')->Query("SELECT cat FROM blog WHERE id='".$sub."'");
-		$myrow_index = Niun::getInstance()->Get('DataBase')->GetArray($result_index);
+		$result_index = Registry::getInstance()->DataBase->Query("SELECT cat FROM blog WHERE id='".$sub."'");
+		$myrow_index = Registry::getInstance()->DataBase->GetArray($result_index);
 
 	}
 	
@@ -71,54 +71,53 @@ return $id;
 
 function menu($chpu,$idM)
 {
-global $site_menu, $config;
+	global $site_menu, $config;
+	$menu = "";
 
-if(count($site_menu)>0)
-{
-	$sm_read = Niun::getInstance()->Get('Template')->Fetch('menu');
+	if(count($site_menu)>0) {
+		$sm_read = Registry::getInstance()->Template->Fetch('menu');
+		
+		preg_match("/\[_divmenu\](.*?)\[_divmenu\]/s",$sm_read,$div_menu);
 	
-	preg_match("/\[_divmenu\](.*?)\[_divmenu\]/s",$sm_read,$div_menu);
+		$menu = station(0,$site_menu,$div_menu[1],0,$chpu,$idM);
+	
+		$menu = preg_replace("/\[_divmenu\].*?\[_divmenu\]/s",$menu,$sm_read);
+	
+	}
 
-	$menu = station(0,$site_menu,$div_menu[1],0,$chpu,$idM);
-
-	$menu = preg_replace("/\[_divmenu\].*?\[_divmenu\]/s",$menu,$sm_read);
-
-}
-else $menu = "";
-return $menu;
+	return $menu;
 }
 
 function station($stat,$commMASS,$temp,$BC,$chpu,$idM)
 {
 	$menu = '';
-for($i=0;isset($commMASS[$i]);$i++)
-{
-	if($commMASS[$i][4] == $stat)
+	for($i=0;isset($commMASS[$i]);$i++)
 	{
-		$edd_tamp = $temp;
-
-		if($commMASS[$i][3] == "")
-		{	
-			if($chpu == 0)$href = "<a href=\"index.php?cat=".$commMASS[$i][0]."\">".$commMASS[$i][2]."</a>";
-			else $href = "<a href=\"".gen_catalog($commMASS[$i][0])."\">".$commMASS[$i][2]."</a>";
-		}
-		else
+		if($commMASS[$i][4] == $stat)
 		{
-			if($commMASS[$i][3] != "#")$href = "<a href=\"".$commMASS[$i][3]."\">".$commMASS[$i][2]."</a>";
-			else $href = "<span class='nohref'>".$commMASS[$i][2]."</span>";
+			$edd_tamp = $temp;
+	
+			if($commMASS[$i][3] == "")
+			{	
+				if($chpu == 0)$href = "<a href=\"index.php?cat=".$commMASS[$i][0]."\">".$commMASS[$i][2]."</a>";
+				else $href = "<a href=\"".gen_catalog($commMASS[$i][0])."\">".$commMASS[$i][2]."</a>";
+			}
+			else
+			{
+				if($commMASS[$i][3] != "#")$href = "<a href=\"".$commMASS[$i][3]."\">".$commMASS[$i][2]."</a>";
+				else $href = "<span class='nohref'>".$commMASS[$i][2]."</span>";
+			}
+		$style = $BC * 10;
+		$newBC = $BC + 1;
+		$podmenu = station($commMASS[$i][0],$commMASS,$temp,$newBC,$chpu,$idM);
+	
+		if($idM == $commMASS[$i][0])$edd_tamp = str_replace("[_class]","TRUE",$edd_tamp);
+		else $edd_tamp = str_replace("[_class]","",$edd_tamp);	
+		$edd_tamp = str_replace("[_podmenu]",$podmenu,$edd_tamp);
+		$edd_tamp = str_replace("[_style]",$style,$edd_tamp);
+		$edd_tamp = str_replace("[_station]",$href,$edd_tamp);
+		$menu .= $edd_tamp;
 		}
-	$style = $BC * 10;
-	$newBC = $BC + 1;
-	$podmenu = station($commMASS[$i][0],$commMASS,$temp,$newBC,$chpu,$idM);
-
-	if($idM == $commMASS[$i][0])$edd_tamp = str_replace("[_class]","TRUE",$edd_tamp);
-	else $edd_tamp = str_replace("[_class]","",$edd_tamp);	
-	$edd_tamp = str_replace("[_podmenu]",$podmenu,$edd_tamp);
-	$edd_tamp = str_replace("[_style]",$style,$edd_tamp);
-	$edd_tamp = str_replace("[_station]",$href,$edd_tamp);
-	$menu .= $edd_tamp;
 	}
+	return $menu;
 }
-return $menu;
-}
-?>

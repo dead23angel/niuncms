@@ -8,5 +8,3 @@ if(!defined("NiunCMS")) die("Доступ запрещен");
 
 include(ROOT . DS . 'system' . DS . 'inc' . DS . 'station_menu' . DS . 'function' . DS .'menu.php');
 $site_menu = site_menu();
-
-?>

@@ -169,7 +169,7 @@ $(function () {
 		<td valign="top">
 
 			<!-- Слайдер -->
-			<div id="intresting"></div> <? Registry::getInstance()->Template->Display('slider'); ?>
+			<div id="intresting"></div> <?php echo Registry::getInstance()->Template->Display('slider'); ?>
 			
 			<?=$this->txt?>
 		

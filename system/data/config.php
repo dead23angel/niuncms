@@ -7,9 +7,5 @@
 if(!defined("NiunCMS")) die("Доступ запрещен");
 
 $settings = array(
-
-'version' => '2.0',
-
-	);
-
-?>
+    'version' => '2.0',
+);
